@@ -11,7 +11,7 @@
 #import "BlocksKit+UIKit.h"
 #import "UICollectionView+EmptyState.h"
 
-@interface DemoController () <UICollectionViewDelegateFlowLayout>
+@interface DemoController () <UICollectionViewDelegateFlowLayout, UICollectionViewEmptyStateDelegate>
 @property (strong, nonatomic) IBOutlet UIStepper *sectionStepper;
 @property (strong, nonatomic) IBOutlet UIStepper *itemStepper;
 @property (strong, nonatomic) IBOutlet UISwitch *decoratorSwitch;
@@ -73,7 +73,17 @@
   self.collectionView.emptyState_showAnimationDuration = 0.3;
   self.collectionView.emptyState_hideAnimationDuration = 0.3;
   self.collectionView.emptyState_shouldRespectSectionHeader = YES;
+    
+    self.collectionView.emptyState_delegate = self;
+    
 }
+
+#pragma mark - UICollectionViewEmptyStateDelegate
+
+- (BOOL)collectionViewShouldBypassEmptyView:(UICollectionView *)collectionView {
+    return NO;
+}
+
 
 - (IBAction)sectionHeaderButtonPressed:(UIBarButtonItem *)sender {
   self.collectionView.emptyState_shouldRespectSectionHeader =

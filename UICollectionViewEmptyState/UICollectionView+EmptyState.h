@@ -75,4 +75,6 @@
                         animated:(BOOL) animated;
 - (void)          collectionView:(UICollectionView*) collectionView
   didRemoveEmptyStateOverlayView:(UIView*) view;
+
+- (BOOL)collectionViewShouldBypassEmptyView:(UICollectionView *)collectionView;
 @end

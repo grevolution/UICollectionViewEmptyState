@@ -57,7 +57,7 @@
 @property (nonatomic, assign) NSTimeInterval emptyState_hideDelay;
 
 /** Further customisation */
-@property (nonatomic, unsafe_unretained) id <UICollectionViewEmptyStateDelegate> emptyState_delegate;
+@property (nonatomic, weak) id <UICollectionViewEmptyStateDelegate> emptyState_delegate;
 
 @end
 
